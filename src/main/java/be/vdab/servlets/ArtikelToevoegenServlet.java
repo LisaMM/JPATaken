@@ -3,11 +3,9 @@ package be.vdab.servlets;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-
 import be.vdab.entitites.Artikel;
 import be.vdab.services.ArtikelService;
 
@@ -54,8 +52,9 @@ public class ArtikelToevoegenServlet extends HttpServlet {
 		BigDecimal verkoopprijs = null;
 		try {
 			verkoopprijs = new BigDecimal(request.getParameter("verkoopprijs"));
-			if (verkoopprijs.compareTo(BigDecimal.ZERO) < 0) {
-				fouten.add("De verkoopprijs moet een positief getal zijn");
+			if (verkoopprijs.compareTo(new BigDecimal(
+					request.getParameter("aankoopprijs"))) < 0) {
+				fouten.add("De verkoopprijs moet kleiner dan de aankoopprijs zijn");
 			}
 		} catch (NumberFormatException ex) {
 			fouten.add("De verkoopprijs moet een getal zijn");

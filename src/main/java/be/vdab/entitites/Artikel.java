@@ -28,7 +28,7 @@ public class Artikel implements Serializable {
 	
 	@Override
 	public String toString() {
-		return String.format("%d:%s %f2 - %f2", artikelNr, naam, aankoopprijs, verkoopprijs);
+		return String.format("%d:%s", artikelNr, naam);
 	}
 
 	public String getNaam() {
