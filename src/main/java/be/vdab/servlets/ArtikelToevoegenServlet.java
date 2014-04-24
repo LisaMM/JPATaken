@@ -3,10 +3,12 @@ package be.vdab.servlets;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-import be.vdab.entitites.Artikel;
+
+import be.vdab.entities.Artikel;
 import be.vdab.services.ArtikelService;
 
 /**

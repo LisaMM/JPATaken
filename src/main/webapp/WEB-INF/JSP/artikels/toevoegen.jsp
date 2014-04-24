@@ -9,9 +9,9 @@
 <link rel='stylesheet' href='${contextPath}/styles/default.css'>
 </head>
 <body>
-	<h1>Artikel toeovegen</h1>
+	<h1>Artikel toevoegen</h1>
 	<form action="<c:url value='/artikels/toevoegen.htm'/>" method='post'
-		id='toevoegform'>
+		id='toevoegform' class='ondermekaar'>
 		<label>Naam: <input name='naam' value='${param.naam}'
 			autofocus>
 		</label> <label>Aankoopprijs: <input name='aankoopprijs'

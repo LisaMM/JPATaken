@@ -1,10 +1,19 @@
 package be.vdab.dao;
 
-import javax.persistence.EntityManager;
-import be.vdab.entitites.Artikel;
+import javax.persistence.TypedQuery;
 
-public class ArtikelDAO {
-	public void create(Artikel artikel, EntityManager entityManager) {
-		entityManager.persist(artikel);
+import be.vdab.entities.Artikel;
+
+public class ArtikelDAO extends AbstractDAO {
+	
+	public void create(Artikel artikel) {
+		getEntityManager().persist(artikel);
+	}
+	
+	public Iterable<Artikel> findByWoord(String woord) {
+		TypedQuery<Artikel> query = getEntityManager().createNamedQuery(
+				"Artikel.findByWoord", Artikel.class);
+		query.setParameter("woord", woord);
+		return query.getResultList();
 	}
 }

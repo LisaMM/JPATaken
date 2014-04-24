@@ -16,6 +16,8 @@
 			<ul>		
 				<li><a href="<c:url value='/artikels/toevoegen.htm'/>">
 					Artikel toevoegen</a></li>
+				<li><a href="<c:url value='/artikels/zoeken.htm'/>">
+					Artikel zoeken op woord</a></li>
 			</ul>
 		</nav>
 	</body>

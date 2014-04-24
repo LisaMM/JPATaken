@@ -4,4 +4,11 @@
 	xsi:schemaLocation='http://java.sun.com/xml/ns/persistence/orm
 http://java.sun.com/xml/ns/persistence/orm_2_0.xsd'
 	version='2.0'>
+	<named-query name='Artikel.findByWoord'>
+		<query>
+			select a from Artikel a
+			where a.naam like :woord
+			order by a.naam
+		</query>
+	</named-query>
 </entity-mappings>
