@@ -18,6 +18,8 @@
 					Artikel toevoegen</a></li>
 				<li><a href="<c:url value='/artikels/zoeken.htm'/>">
 					Artikel zoeken op woord</a></li>
+				<li><a href="<c:url value='/artikels/prijsverhoging.htm'/>">
+					Prijs verhogen artikels</a></li>
 			</ul>
 		</nav>
 	</body>
