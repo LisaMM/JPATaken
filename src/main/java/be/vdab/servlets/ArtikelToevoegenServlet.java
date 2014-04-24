@@ -56,7 +56,7 @@ public class ArtikelToevoegenServlet extends HttpServlet {
 			verkoopprijs = new BigDecimal(request.getParameter("verkoopprijs"));
 			if (verkoopprijs.compareTo(new BigDecimal(
 					request.getParameter("aankoopprijs"))) < 0) {
-				fouten.add("De verkoopprijs moet kleiner dan de aankoopprijs zijn");
+				fouten.add("De aankoopprijs moet kleiner dan de verkoopprijs zijn");
 			}
 		} catch (NumberFormatException ex) {
 			fouten.add("De verkoopprijs moet een getal zijn");
