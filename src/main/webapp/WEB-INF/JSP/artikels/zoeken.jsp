@@ -16,7 +16,6 @@
 			</label> 
 			<input type='submit' value='Zoeken'>
 		</form>
-		<c:import url='/WEB-INF/JSP/fouten.jsp' />
 		<c:if test="${not empty artikels}">
 			<table>
 				<thead>
@@ -30,14 +29,15 @@
 				<tbody>
 					<c:forEach items='${artikels}' var='artikel'>
 						<tr>
-							<td>${artikel.artikelNr}</td>
+							<td class='rechts'>${artikel.artikelNr}</td>
 							<td>${artikel.naam}</td>
-							<td>${artikel.aankoopprijs}</td>
-							<td>${artikel.verkoopprijs}</td>
+							<td class='rechts'>${artikel.aankoopprijs}</td>
+							<td class='rechts'>${artikel.verkoopprijs}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</c:if>
+		<c:import url='/WEB-INF/JSP/fouten.jsp' />
 	</body>
 </html>

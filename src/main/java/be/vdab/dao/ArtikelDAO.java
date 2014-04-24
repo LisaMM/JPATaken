@@ -13,7 +13,7 @@ public class ArtikelDAO extends AbstractDAO {
 	public Iterable<Artikel> findByWoord(String woord) {
 		TypedQuery<Artikel> query = getEntityManager().createNamedQuery(
 				"Artikel.findByWoord", Artikel.class);
-		query.setParameter("woord", woord);
+		query.setParameter("woord", String.format("%%%s%%", woord));
 		return query.getResultList();
 	}
 }

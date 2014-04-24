@@ -7,7 +7,7 @@ table,th,td {
 	border-collapse: collapse;
 }
 
-thead tr, tfoot tr {
+thead tr,tfoot tr {
 	color: white;
 	background-color: gray;
 }
@@ -26,18 +26,18 @@ tbody tr:nth-child(odd) {
 }
 
 label {
-	cursor:pointer;
+	cursor: pointer;
 }
 
 input,select {
 	display: block;
 	font-size: 1.1em;
 	margin-bottom: 1em;
-	margin-top: 0.2em;	
+	margin-top: 0.2em;
 }
 
-input:focus, textarea:focus, select:focus {
-    background-color: #FFFFD6
+input:focus,textarea:focus,select:focus {
+	background-color: #FFFFD6
 }
 
 input[type='checkbox'],input[type='radio'] {
@@ -52,7 +52,7 @@ input[type='checkbox'],input[type='radio'] {
 .zonderbolletjes {
 	list-style: none;
 	margin-bottom: 0.2em;
-	padding: 0;	
+	padding: 0;
 }
 
 .zonderbolletjes li {
@@ -60,11 +60,16 @@ input[type='checkbox'],input[type='radio'] {
 	margin-right: 0.2em;
 }
 
-.wedde td:first-child {
-	text-align:right;
+table,td,th {
+	border: 1px solid silver;
+	border-collapse: collapse;
 }
 
-.wedde td:last-child {
-	text-align:right;
+th {
+	color: white;
+	background-color: gray;
 }
 
+td.rechts {
+	text-align: right;
+}
