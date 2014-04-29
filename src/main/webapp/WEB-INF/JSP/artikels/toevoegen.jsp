@@ -18,7 +18,20 @@
 			value='${param.aankoopprijs}' type='number'>
 		</label> <label>Verkoopprijs: <input name='verkoopprijs'
 			value='${param.verkoopprijs}' type='number'>
-		</label> <input type='submit' value='Toevoegen' id='toevoegknop'>
+		</label>
+		<div>
+			<label><input name="soort" value="F" type="radio"
+				${param.soort == "F" ? "checked" : "" }>Food</label>
+		</div>
+		<label>Houdbaarheid: <input name="houdbaarheid" value="${param.houdbaarheid}"
+			type="number"></label>
+		<div>
+			<label><input name="soort" value="NF" type="radio"
+				${param.soort == "NF" ? "checked" : ""}>Non-Food</label>
+		</div>
+		<label>Garantie: <input name="garantie"
+			value="${param.garantie}" type="number"></label> <input type='submit'
+			value='Toevoegen' id='toevoegknop'>
 	</form>
 	<c:import url='/WEB-INF/JSP/fouten.jsp' />
 	<script>

@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-import be.vdab.entities.Artikel;
+import be.vdab.entities.*;
 import be.vdab.services.ArtikelService;
 
 /**
@@ -39,10 +39,13 @@ public class ArtikelToevoegenServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		List<String> fouten = new ArrayList<>();
 		String naam = request.getParameter("naam");
+		int houdbaarheid = 0;
+		int garantie = 0;
+		BigDecimal aankoopprijs = null;
+		BigDecimal verkoopprijs = null;
 		if (naam == null || naam.isEmpty()) {
 			fouten.add("Naam verplicht");
 		}
-		BigDecimal aankoopprijs = null;
 		try {
 			aankoopprijs = new BigDecimal(request.getParameter("aankoopprijs"));
 			if (aankoopprijs.compareTo(BigDecimal.ZERO) < 0) {
@@ -51,7 +54,6 @@ public class ArtikelToevoegenServlet extends HttpServlet {
 		} catch (NumberFormatException ex) {
 			fouten.add("De aankoopprijs moet een getal zijn");
 		}
-		BigDecimal verkoopprijs = null;
 		try {
 			verkoopprijs = new BigDecimal(request.getParameter("verkoopprijs"));
 			if (verkoopprijs.compareTo(new BigDecimal(
@@ -61,9 +63,35 @@ public class ArtikelToevoegenServlet extends HttpServlet {
 		} catch (NumberFormatException ex) {
 			fouten.add("De verkoopprijs moet een getal zijn");
 		}
-
+		String soort = request.getParameter("soort");
+		if ("F".equals(soort)) {
+			try {
+				houdbaarheid = Integer.parseInt(request.getParameter("houdbaarheid"));
+				if (houdbaarheid <= 0) {
+					fouten.add("De houdbaarheid moet een positief getal zijn");
+				}
+			} catch (NumberFormatException ex) {
+				fouten.add("De houdbaarheid moet een getal zijn");
+			}	
+		} else if ("NF".equals(soort)) {
+			try {
+				garantie = Integer.parseInt(request.getParameter("garantie"));
+				if (garantie < 0) {
+					fouten.add("De garantie moet een positief getal zijn");
+				}
+			} catch (NumberFormatException ex) {
+				fouten.add("De garantie moet een getal zijn");
+			}	
+		} else {
+			fouten.add("Is dit een Food of Non-Food artikel?");
+		}
 		if (fouten.isEmpty()) {
-			Artikel artikel = new Artikel(naam, aankoopprijs, verkoopprijs);
+			Artikel artikel;
+			if ("F".equals(soort)) {
+				artikel = new FoodArtikel(naam, aankoopprijs, verkoopprijs, houdbaarheid);
+			} else {
+				artikel = new NonFoodArtikel(naam, aankoopprijs, verkoopprijs, houdbaarheid);
+			}
 			artikelService.create(artikel);
 			response.sendRedirect(response.encodeRedirectURL(String.format(
 					REDIRECT_URL, request.getContextPath(), artikel.getArtikelNr())));
