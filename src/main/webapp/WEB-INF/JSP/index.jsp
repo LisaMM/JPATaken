@@ -20,6 +20,8 @@
 					Artikel zoeken op woord</a></li>
 				<li><a href="<c:url value='/artikels/prijsverhoging.htm'/>">
 					Prijs verhogen artikels</a></li>
+				<li><a href="<c:url value='/artikels/kortingen.htm'/>">
+					Artikelkortingen</a></li>
 			</ul>
 		</nav>
 	</body>

@@ -25,4 +25,12 @@ public class ArtikelService {
 		artikelDAO.prijsVerhoging(factor);
 		artikelDAO.commit();
 	}
+	
+	public Iterable<Artikel> findAll() {
+		return artikelDAO.findAll();
+	}
+	
+	public Artikel read(long artikelNr) {
+		return artikelDAO.read(artikelNr);
+	}
 }

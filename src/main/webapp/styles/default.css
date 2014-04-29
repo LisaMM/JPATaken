@@ -51,13 +51,11 @@ input[type='checkbox'],input[type='radio'] {
 
 .zonderbolletjes {
 	list-style: none;
-	margin-bottom: 0.2em;
-	padding: 0;
+	padding-left: 0;
 }
 
 .zonderbolletjes li {
 	display: inline;
-	margin-right: 0.2em;
 }
 
 table,td,th {
